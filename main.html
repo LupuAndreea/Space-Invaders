@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> My Random Game </title>
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/gameStyle.css">
+        <link rel="stylesheet" href="style/logIn.css">
+        <script src="scripts/script.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <!--The souns for the missels and the colision are added here.-->>
+        <audio id="laserPlayer" src="sounds/laser.m4a" preload="auto" controls="none " style="display: none;"></audio>
+        <audio id="hitPlayer" src="sounds/music-high.m4a" preload="auto" controls="none " style="display: none;"></audio>
+       
+        <header>
+            <li class="container">
+                <img src="style/logo.png" alt="logo" class="logo">
+
+                <!--The navigation bar is created here!-->>
+                <nav>
+                    <ul>
+                        <!--The navigation bar contains 5 elements.-->>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New Game</a></li>
+                        <li><a href="#">Score List</a></li>
+                        <!--The came stile contains a dropdown list with the implemented game 
+                        styles that the player can use.-->>
+                        <li class="dropdown"><a href="#">Game Style</a>
+                            <div class="dropdown-content">
+                                <div>
+                                    <label>
+                                        <input id="christmasStyle" type="checkbox" onclick="changeStyle();" name="christmas"> Christmas Style
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input id="secondStyle" type="checkbox" onclick="changeStyle();" name="second"> Second Style
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- Button to open the modal login form-->
+                            <buttonon onclick="document.getElementById('id01').style.display='block'"><a>Login</a></button> 
+                        </li>
+                    </ul>
+                    
+                </nav>
+            </div>
+        </header>
+
+         <!-- The Modal -->
+         <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').setAttribute('style','');" class="close" title="Close Modal"> &times; </span>
+            
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+                <img src="style/mustache1.png" alt="Avatar" class="avatar">
+            </div>
+            
+            <!--The Log In register contains the User, the Emai and the Password.-->>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+                
+                <!--The Email is validated with a regular expresion in the validateEmail function.-->>
+                <label for="email"><b>Email</b></label>
+                <input id="email" type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+        
+                <button type="text" onclick="validateEmail()">Login</button>
+                <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+            </form>
+        </div>
+        
+        <div class="labels">
+                <p id="level"> LEVEL: </p>
+                <p id="lives"> LIVES: </p>
+                <p id="score"> SCORE: </p>
+            </div>
+
+        <div id="background">
+            
+            <div id="hero"> </div> 
+            <div id="missiles"> </div>
+            <div id="enemies"></div>
+            <button type="" id="startButton">Start</button>
+        </div>
+
+        
+
+    </body>
